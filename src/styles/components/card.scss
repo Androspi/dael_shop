@@ -1,0 +1,49 @@
+.ds-card {
+    box-shadow: inset 20px 0px 120px 20px var(--ds-card-dark-color);
+    background-color: var(--ds-card-color);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    top: 0;
+}
+
+.primary-card {
+    --ds-card-color: var(--bs-primary);
+    --ds-card-dark-color: #8884f0;
+}
+
+.secondary-card {
+    --ds-card-dark-color: #f3f3f3;
+    --ds-card-color: #ffffff;
+}
+
+.card {
+    --bs-card-bg: transparent;
+    --bs-card-spacer-y: 0.75rem;
+    --bs-card-spacer-x: 0.5rem;
+    --bs-card-title-color: #000000;
+    --bs-card-color: #000000;
+    --bs-card-border-radius: 1rem;
+
+    border: none;
+
+    &:hover {
+        transition: all 500ms ease;
+        box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+        cursor: pointer;
+    }
+
+    .img-container {
+        background-color: var(--ds-primary-light2);
+        border-radius: 1rem;
+    }
+
+    .card-title {
+        font-size: 0.75rem;
+    }
+
+    .card-text {
+        font-weight: 300;
+    }
+}

@@ -1,0 +1,81 @@
+<main class="animated">
+    <!-- <div class="ds-card secondary-card"></div> -->
+    <section class="header ds-primary-light-bg pt-5 ps-3 pe-3 pb-5 position-relative">
+        <form class="d-flex" style="align-items: center;" action="">
+            <div class="input-group flex-nowrap me-5">
+                <span class="input-group-text" id="addon-wrapping">
+                    <span class="material-icons">search</span>
+                </span>
+                <input type="search" class="form-control" placeholder="Buscar" aria-label="searcher"
+                    aria-describedby="addon-wrapping">
+            </div>
+
+            <button class="btn icon-btn ms-5 position-relative" style="--ds-bg-sl: var(--ds-primary-light2);">
+                <img src="/assets/icons/love-bag.png" alt="bolsa-compras.png">
+
+                <span class="position-absolute badge rounded-pill ds-primary-bg"
+                    style="right: -7.5%; top: 7.5%; color: #000000; font-weight: 300;">
+                    0
+                </span>
+            </button>
+        </form>
+
+        <article class="ms-2 mt-4" style="width: 60%;">
+
+            <h6>
+                <a role="button" href="https://www.instagram.com/variedadesdaelrd/" target="_blank">
+                    <small class="bold">
+                        #VARIEDADESDAELRD
+                    </small>
+                </a>
+            </h6>
+
+            <h3 class="mt-3">SÉ AUTÉNTICO</h3>
+
+            <p class="mt-3 mb-0" style="width: 70%;">
+                <small>
+                    Una sonrisa es lo más bonito que puedes ponerte
+                </small>
+            </p>
+        </article>
+
+        <img src="/assets/images/diamond-3855092_640.png" alt="collar.png" class="position-absolute"
+            style="top: 100%; left: 100%; transform: translate(-58%, -34%); rotate: 17.88deg; max-width: 500px; width: 100vw;">
+    </section>
+
+    <nav class="categories position-relative d-flex overflow-auto">
+        <div class="ms-4 text-center" *ngFor="let category of categories">
+            <button class="btn sm-icon-btn position-relative category" style="--ds-bg: #000000; --ds-bg-sl: var(--ds-primary); ">
+                <img src="/assets/icons/{{category.icon}}.png" alt="{{category.name}}">
+            </button>
+            <p class="mt-2 mb-0" style="color: #000000; font-weight: 300;">{{category.name}}</p>
+        </div>
+        <!-- <button class="btn ms-2 position-absolute h-100"
+            style="border: 1px solid #808080; padding: 0; background: #fff; border-radius: 0; top: 0; right: 0;" *ngIf="vw < 550">
+            <span class="material-icons d-block" style="transform: rotate(90deg);">eject</span>
+        </button> -->
+    </nav>
+
+    <section class="shop">
+        <div class="shop-row" style="margin-left: calc(var(--gutter-x) / 2); margin-right: calc(var(--gutter-x) / 2);">
+            <div class="shop-col" *ngFor="let product of products">
+                <div class="card">
+                    <div class="img-container">
+                        <img src="/assets/{{product.image}}" class="card-img-top" [alt]="product.name" height="200"
+                            style="object-fit: contain;" [style.transform]="'rotate(' + product.rotation + ')'">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title text-truncate mb-0" style="font-weight: 500;">{{product.name}}</h5>
+                        <p class="card-text mb-0 mt-1 d-flex"
+                            style="justify-content: space-between; align-items: center;">
+                            <span>{{product.price | currency}}</span>
+                            <button class="btn p-0 ">
+                                <span class="material-icons d-block">add_circle_outline</span>
+                            </button>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>

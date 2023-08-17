@@ -1,0 +1,28 @@
+@use "src/styles/theme.scss";
+
+:root {
+    --ds-primary-rgb: #{theme.$primary-rgb};
+    --ds-primary: #{theme.$primary};
+    --ds-primary-light: #{theme.$primary-light};
+    --ds-primary-dark: #{theme.$primary-dark};
+    --ds-primary-light2: #{theme.$primary-light2};
+    --ds-primary-light2-flt: #{theme.$primary-light2-flt};
+    --ds-primary-flt: #{theme.$primary-flt};
+}
+
+:root {
+    --bs-primary-rgb: var(--ds-primary-rgb);
+    --bs-primary: var(--ds-primary);
+}
+
+.ds-primary-bg {
+    background-color: var(--ds-primary);
+}
+
+.ds-primary-light-bg {
+    background-color: var(--ds-primary-light);
+}
+
+.ds-primary-dark-bg {
+    background-color: var(--ds-primary-dark);
+}

@@ -1,0 +1,52 @@
+@use "src/styles/theme.scss";
+
+.btn {
+    font-family: "Poppins", sans-serif;
+}
+
+.btn-dark {
+    --bs-btn-bg: #000000;
+    --bs-btn-border-color: #000000;
+    --bs-btn-hover-bg: #121212;
+    --bs-btn-hover-border-color: #121212;
+    --bs-btn-active-bg: #121212;
+    --bs-btn-active-border-color: #121212;
+    --bs-btn-disabled-bg: #000000;
+    --bs-btn-disabled-border-color: #000000;
+}
+
+.icon-btn,
+.sm-icon-btn {
+    background: var(--ds-bg, transparent);
+    border-radius: 50%;
+    cursor: pointer;
+
+    &:active,
+    &:hover,
+    &:focus {
+        background: var(--ds-bg-sl, transparent);
+    }
+}
+
+.icon-btn {
+    padding: 0.25rem;
+
+    img {
+        height: 3.125rem;
+        width: 3.125rem;
+    }
+}
+
+.sm-icon-btn {
+    padding: 0.875rem;
+
+    img {
+        height: 2.5rem;
+        width: 2.5rem;
+    }
+}
+
+a[role="button"] {
+    text-decoration: none;
+    color: inherit;
+}
