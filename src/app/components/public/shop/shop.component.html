@@ -11,7 +11,7 @@
             </div>
 
             <button class="btn icon-btn ms-5 position-relative" style="--ds-bg-sl: var(--ds-primary-light2);">
-                <img src="/assets/icons/love-bag.png" alt="bolsa-compras.png">
+                <img src="assets/icons/love-bag.png" alt="bolsa-compras.png">
 
                 <span class="position-absolute badge rounded-pill ds-primary-bg"
                     style="right: -7.5%; top: 7.5%; color: #000000; font-weight: 300;">
@@ -39,14 +39,14 @@
             </p>
         </article>
 
-        <img src="/assets/images/diamond-3855092_640.png" alt="collar.png" class="position-absolute"
+        <img src="assets/images/diamond-3855092_640.png" alt="collar.png" class="position-absolute"
             style="top: 100%; left: 100%; transform: translate(-58%, -34%); rotate: 17.88deg; max-width: 500px; width: 100vw;">
     </section>
 
     <nav class="categories position-relative d-flex overflow-auto">
         <div class="ms-4 text-center" *ngFor="let category of categories">
             <button class="btn sm-icon-btn position-relative category" style="--ds-bg: #000000; --ds-bg-sl: var(--ds-primary); ">
-                <img src="/assets/icons/{{category.icon}}.png" alt="{{category.name}}">
+                <img src="assets/icons/{{category.icon}}.png" alt="{{category.name}}">
             </button>
             <p class="mt-2 mb-0" style="color: #000000; font-weight: 300;">{{category.name}}</p>
         </div>
@@ -61,7 +61,7 @@
             <div class="shop-col" *ngFor="let product of products">
                 <div class="card">
                     <div class="img-container">
-                        <img src="/assets/{{product.image}}" class="card-img-top" [alt]="product.name" height="200"
+                        <img src="assets/{{product.image}}" class="card-img-top" [alt]="product.name" height="200"
                             style="object-fit: contain;" [style.transform]="'rotate(' + product.rotation + ')'">
                     </div>
                     <div class="card-body">
