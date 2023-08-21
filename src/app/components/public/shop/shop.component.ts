@@ -52,7 +52,7 @@ export class ShopComponent {
 
       this.products = this.Products.list.filter(({ categories, name }) => {
         if (this.categoryId && !categories.includes(this.categoryId)) return false;
-        if (fnd && !name.includes(fnd)) return false;
+        if (fnd && !name.toLowerCase().includes(fnd.toLowerCase())) return false;
         return true;
       });
     })
