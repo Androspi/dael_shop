@@ -1,0 +1,69 @@
+<main *ngIf="product">
+    <section class="ds-primary-light-bg pt-5 ps-3 pe-3 pb-5 position-relative">
+        <a role="button" routerLink="/shop"
+            style="border-radius: 0.1875rem; border: 1px solid #808080; --bs-btn-padding-x: .375rem" class="btn">
+            <span class="material-icons d-block" style="color: #212121;">keyboard_backspace</span>
+        </a>
+
+        <img class="d-block mb-5 ms-auto me-auto" src="assets/{{product.image}}" [alt]="product.name"
+            [style.transform]="'rotate(' + product.rotation + ')'" height="300">
+
+        <div class="btn-section">
+            <button class="btn">
+                <span class="material-icons d-block">star_outline</span>
+            </button>
+            <button class="btn">
+                <span class="material-icons d-block">share</span>
+            </button>
+        </div>
+    </section>
+
+    <h1 class="product-title ms-5 me-5" #title>
+        {{product.name}}
+    </h1>
+    <div class="translate-braker" [style.marginTop]="(-title.offsetHeight / 2) + 'px'"></div>
+    <h1 class="product-price ms-5 me-5 mt-3">
+        {{product.price | currency:'COP':'symbol':'0.0-0'}}
+    </h1>
+
+    <section class="ds-primary-light-bg position-relative mt-5 d-flex ps-5 pe-5"
+        style="justify-content: space-between;">
+        <p class="package-title"><small>Empaque</small></p>
+
+        <button class="btn p-0" style="align-self: center; position: absolute; left: 1.5rem;"
+            *ngIf="packagePage.page !== 1" (click)="setPackagePage(-1)">
+            <span class="material-icons d-block">chevron_left</span>
+        </button>
+
+        <div class="text-center package-item"
+            *ngFor="let package of $any(Packages.list | slice:packagePage.start:packagePage.end)"
+            [attr.item-name]="package.name" [ngClass]="{ active: package.id === packageId }">
+            <button class="btn position-relative p-0" (click)="setSelectedPackage(package.id)">
+                <img src="assets/packages/{{package.icon}}.png" alt="{{package.name}}" height="64" width="64"
+                    style="object-fit: contain;">
+            </button>
+            <div class="mt-2 mb-0 package-item-text">
+                {{package.price | currency:'COP':'symbol':'0.0-0'}}
+            </div>
+        </div>
+
+        <button class="btn p-0" style="align-self: center; position: absolute; right: 1.5rem;"
+            *ngIf="packagePage.page < packagePage.list" (click)="setPackagePage(1)">
+            <span class="material-icons d-block">chevron_right</span>
+        </button>
+    </section>
+
+    <p class="mt-5 ms-5 me-5" style="font-weight: 300; font-size: 16px; margin-bottom: 2rem;">{{product.description}}</p>
+
+    <section class="m-3">
+        <button class="btn btn-dark append-btn d-flex w-100" (click)="appendProduct()">
+            <span style="letter-spacing: 0.15rem;">AGREGAR</span>
+            <span>
+                <span class="ms-2"><u style="font-size: .675em;">{{subtotal |
+                        currency:'COP':'symbol':'1.0-0'}}</u></span>
+                <img class="ms-2" width="40" src="assets/icons/love-bag.png" alt="bolsa-compras.png"
+                    style="filter: var(--ds-primary-flt);">
+            </span>
+        </button>
+    </section>
+</main>

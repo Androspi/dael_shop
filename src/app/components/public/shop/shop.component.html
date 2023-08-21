@@ -1,13 +1,12 @@
 <main class="animated">
-    <!-- <div class="ds-card secondary-card"></div> -->
     <section class="header ds-primary-light-bg pt-5 ps-3 pe-3 pb-5 position-relative">
         <form class="d-flex" style="align-items: center;" action="">
             <div class="input-group flex-nowrap me-5">
                 <span class="input-group-text" id="addon-wrapping">
                     <span class="material-icons">search</span>
                 </span>
-                <input type="search" class="form-control" placeholder="Buscar" aria-label="searcher"
-                    aria-describedby="addon-wrapping">
+                <input type="search" class="form-control" placeholder="Buscar" aria-label="searcher" id="input-searcher"
+                    aria-describedby="addon-wrapping" (input)="search($any($event.target))">
             </div>
 
             <button class="btn icon-btn ms-5 position-relative" style="--ds-bg-sl: var(--ds-primary-light2);">
@@ -15,7 +14,7 @@
 
                 <span class="position-absolute badge rounded-pill ds-primary-bg"
                     style="right: -7.5%; top: 7.5%; color: #000000; font-weight: 300;">
-                    0
+                    {{(Cart.productList | keyvalue).length}}
                 </span>
             </button>
         </form>
@@ -45,7 +44,9 @@
 
     <nav class="categories position-relative d-flex overflow-auto">
         <div class="ms-4 text-center" *ngFor="let category of categories">
-            <button class="btn sm-icon-btn position-relative category" style="--ds-bg: #000000; --ds-bg-sl: var(--ds-primary); ">
+            <button [ngClass]="{ active: category.id === categoryId }"
+                class="btn sm-icon-btn position-relative category" (click)="setCategory(category.id)"
+                style="--ds-bg: #000000; --ds-bg-sl: var(--ds-primary); ">
                 <img src="assets/icons/{{category.icon}}.png" alt="{{category.name}}">
             </button>
             <p class="mt-2 mb-0" style="color: #000000; font-weight: 300;">{{category.name}}</p>
@@ -57,10 +58,12 @@
     </nav>
 
     <section class="shop">
+        <p class="ms-5 me-5" *ngIf="!products.length"> No hay productos disponibles </p>
+
         <div class="shop-row" style="margin-left: calc(var(--gutter-x) / 2); margin-right: calc(var(--gutter-x) / 2);">
-            <div class="shop-col" *ngFor="let product of products">
+            <a role="button" routerLink="/product/{{product.id}}" class="shop-col" *ngFor="let product of products">
                 <div class="card">
-                    <div class="img-container">
+                    <div class="img-container" style="padding: 0 15%;">
                         <img src="assets/{{product.image}}" class="card-img-top" [alt]="product.name" height="200"
                             style="object-fit: contain;" [style.transform]="'rotate(' + product.rotation + ')'">
                     </div>
@@ -75,7 +78,7 @@
                         </p>
                     </div>
                 </div>
-            </div>
+            </a>
         </div>
     </section>
 </main>

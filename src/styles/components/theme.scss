@@ -6,6 +6,7 @@
     --ds-primary-light: #{theme.$primary-light};
     --ds-primary-dark: #{theme.$primary-dark};
     --ds-primary-light2: #{theme.$primary-light2};
+    --ds-primary-dark2: #{theme.$primary-dark2};
     --ds-primary-light2-flt: #{theme.$primary-light2-flt};
     --ds-primary-flt: #{theme.$primary-flt};
 }
@@ -25,4 +26,12 @@
 
 .ds-primary-dark-bg {
     background-color: var(--ds-primary-dark);
+}
+
+.ds-primary-dark-cl {
+    color: var(--ds-primary-dark);
+}
+
+.ds-primary-dark2-cl {
+    color: var(--ds-primary-dark2);
 }

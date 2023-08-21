@@ -13,16 +13,16 @@ html {
 }
 
 body {
+    background-color: #e8e9ea;
+    height: var(--app-height);
     justify-content: center;
     display: inline-flex;
     overflow: hidden;
-    height: -webkit-fill-available;
-    height: var(--app-height);
     width: 100vw;
 }
 
 main {
-    box-shadow: 0px 0px 9px 0px #f3f3f3;
+    // box-shadow: 0px 0px 9px 0px #f3f3f3;
     box-sizing: content-box;
     background: #ffffff;
     position: relative;

@@ -9,13 +9,18 @@
 }
 
 .primary-card {
-    --ds-card-color: var(--bs-primary);
+    --ds-card-color: var(--ds-primary);
     --ds-card-dark-color: #8884f0;
 }
 
 .secondary-card {
     --ds-card-dark-color: #f3f3f3;
     --ds-card-color: #ffffff;
+}
+
+.tertiary-card {
+    --ds-card-color: var(--ds-primary-light2);
+    --ds-card-dark-color: var(--ds-primary);
 }
 
 .card {
@@ -37,6 +42,7 @@
     .img-container {
         background-color: var(--ds-primary-light2);
         border-radius: 1rem;
+        margin: 0.25rem;
     }
 
     .card-title {

@@ -13,7 +13,7 @@
 .category {
     transition: all 250ms ease;
 
-    &:not(:hover):not(:focus):not(:active) {
+    &:not(:hover):not(:focus):not(:active):not(.active) {
         img {
             filter: var(--ds-primary-flt);
         }
@@ -53,7 +53,7 @@
     }
 
     @media only screen and (max-width: 550px) {
-        --gutter-x: 7.5vw;
+        --gutter-x: calc(7.5vw - 0.25rem);
         --gutter-y: 5vh;
     }
 }
