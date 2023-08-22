@@ -9,14 +9,15 @@
                     aria-describedby="addon-wrapping" (input)="search($any($event.target))">
             </div>
 
-            <button class="btn icon-btn ms-5 position-relative" style="--ds-bg-sl: var(--ds-primary-light2);">
+            <a role="button" class="btn icon-btn ms-5 position-relative" style="--ds-bg-sl: var(--ds-primary-light2);"
+                routerLink="/cart">
                 <img src="assets/icons/love-bag.png" alt="bolsa-compras.png">
 
                 <span class="position-absolute badge rounded-pill ds-primary-bg"
                     style="right: -7.5%; top: 7.5%; color: #000000; font-weight: 300;">
-                    {{(Cart.productList | keyvalue).length}}
+                    {{(Cart.orderList | keyvalue).length}}
                 </span>
-            </button>
+            </a>
         </form>
 
         <article class="ms-2 mt-4" style="width: 60%;">

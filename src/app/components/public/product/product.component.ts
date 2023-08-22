@@ -91,7 +91,7 @@ export class ProductComponent {
   }
 
   appendProduct() {
-    this.Cart.appendProduct(this.productId, this.packageId);
+    this.Cart.append(this.productId, this.packageId);
     this.router.navigate(['/shop']);
   }
 

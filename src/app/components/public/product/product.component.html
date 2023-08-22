@@ -6,7 +6,8 @@
         </a>
 
         <img class="d-block mb-5 ms-auto me-auto" src="assets/{{product.image}}" [alt]="product.name"
-            [style.transform]="'rotate(' + product.rotation + ')'" height="300">
+            [style.transform]="'rotate(' + product.rotation + ')'" height="300"
+            style="object-fit: contain; aspect-ratio: 1;">
 
         <div class="btn-section">
             <button class="btn">
@@ -53,7 +54,9 @@
         </button>
     </section>
 
-    <p class="mt-5 ms-5 me-5" style="font-weight: 300; font-size: 16px; margin-bottom: 2rem;">{{product.description}}</p>
+    <p class="mt-5 ms-5 me-5" style="font-weight: 300; font-size: 16px; margin-bottom: 2rem;">
+        {{product.description}}
+    </p>
 
     <section class="m-3">
         <button class="btn btn-dark append-btn d-flex w-100" (click)="appendProduct()">
