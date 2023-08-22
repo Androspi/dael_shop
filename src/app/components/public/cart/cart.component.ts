@@ -1,4 +1,3 @@
-import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { ActivatedRoute } from '@angular/router';
 import { Component } from '@angular/core';
 
@@ -23,7 +22,6 @@ export class CartComponent {
   isOrder = false;
 
   constructor(
-    private sanitizer: DomSanitizer,
     private route: ActivatedRoute,
     public Cart: CartService,
   ) { }
@@ -60,11 +58,8 @@ export class CartComponent {
     const encodedURL = encodeURIComponent(`${environment.host}/order/${hashedItem}`);
 
     const whatsappUrl = `https://api.whatsapp.com/send?phone=${environment.phone}&text=${encodedText}%20${encodedURL}`;
-    const safeUrl: SafeUrl = this.sanitizer.bypassSecurityTrustUrl(whatsappUrl);
 
-    console.log(65, whatsappUrl);
-
-    window.open(safeUrl.toString(), '_blank');
+    window.open(whatsappUrl, '_blank');
   }
 
   ngOnDestroy(): void {
