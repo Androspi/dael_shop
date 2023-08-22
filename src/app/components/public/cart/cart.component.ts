@@ -36,6 +36,7 @@ export class CartComponent {
 
   #setByInfo(value: string) {
     this.isOrder = true;
+    value = value.replaceAll(' ', '+');
     const cart = CryptoJS.AES.decrypt(value, 'dael_shop').toString(CryptoJS.enc.Utf8);
     this.Cart.load(JSON.parse(cart));
   }
