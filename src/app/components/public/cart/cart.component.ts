@@ -28,7 +28,7 @@ export class CartComponent {
 
   ngAfterViewInit(): void {
     setTimeout(() => {
-      const info = this.route.snapshot.paramMap.get('info');
+      const info = this.route.snapshot.queryParamMap.get('info');
       if (info) this.#setByInfo(info);
       this.#load();
     }, 0);
@@ -55,7 +55,7 @@ export class CartComponent {
   buy() {
     const encodedText = encodeURIComponent('Me gustaría realizar una solicitud de compra para los siguientes productos/servicios:');
     const hashedItem = CryptoJS.AES.encrypt(localStorage.getItem('cart') || '', 'dael_shop').toString();
-    const encodedURL = encodeURIComponent(`${environment.host}/order/${hashedItem}`);
+    const encodedURL = encodeURIComponent(`${environment.host}/order?info=${hashedItem}`);
 
     const whatsappUrl = `https://api.whatsapp.com/send?phone=${environment.phone}&text=${encodedText}%20${encodedURL}`;
 
